@@ -896,3 +896,120 @@
 
 
 
+// ~~~~~~~~~~> 28. Отримання елементів зі сторінки
+
+
+// const box = document.getElementById('box'); // - Получає унікальний документ по унікальному ідентифікатору
+// console.log(box);
+
+// const btns = document.getElementsByTagName('button'); // - Получає  HTML колекцію, тобто всі кнопки зі сторінки
+// console.log(btns[0]);   // - Получає  першу кнопку зі сторінки
+
+// const circles = document.getElementsByClassName('circle');
+
+// const hearts = document.querySelectorAll('.heart'); // Коли ми працюємо з селекторами нам потрібно ставити крапку (.heart)
+                                                        //  для того щоб знайти елемент по КЛАСУ (або по ID - #)
+// hearts.forEach(item => {
+//     console.log(item);
+// });
+
+// const oneHeart = document.querySelector('.heart'); // - Получає перший елемент який папався йому під селектор('.heart')
+// console.log(oneHeart);
+
+
+
+// ~~~~~~~~~~> 29. Дії з елементами на сторінці
+
+
+// const box = document.getElementById('box'),
+//       btns = document.getElementsByTagName('button'),
+//       circles = document.getElementsByClassName('circle'),
+//       wrapper = document.querySelector('.wrapper'),         // - В мене вже є такий батько (wrapper)
+//       hearts = wrapper.querySelectorAll('.heart'),           
+//       oneHeart = wrapper.querySelector('.heart');       // - змінні hearts та oneHeart - в середині елементу wrapper по селектору ('.heart')
+  
+   // box.style.backgroundColor = 'blue';
+   // box.style.width = '500px';
+
+// box.style.cssText = 'background-color: blue; width: 500px'; // -  Властивість cssText дозволяє задати CSS стилі масово одним рядком
+//                                                             // -  Вище записано двома рядками
+// btns[1].style.borderRadius = '100%';
+// circles[0].style.backgroundColor = 'red';
+
+// hearts.forEach(item => {
+//     item.style.backgroundColor = 'blue';
+// });
+
+// const div = document.createElement('div'); // - Створює елемент 'div' тільки в JS
+ 
+// div.classList.add('black'); // - Добавили до оболочки 'div' клас 'black'
+
+
+   // document.body.append(div); // - Ставить елемент 'div' в кінці 'body' 
+   // document.querySelector('.wrapper').append(div); // - Ставить елемент 'div' в кінці селектору 'wrapper'
+   
+   // wrapper.append(div); // - Переніс wrapper в верх в КОРОБКУ (const box), тому я зараз пропишу так
+// wrapper.appendChild(div); // - Устарівша конструкція !
+
+   // wrapper.prepend(div); // - Ставить елемент 'div' перед селектором 'wrapper'
+   // hearts[0].before(div); // - Ставить елемент 'div' перед першим елементом 'hearts[0]'
+   // hearts[0].after(div); // - Ставить елемент 'div' після першого елементу 'hearts[0]'
+// wrapper.insertBefore(div, hearts[1]) // - (Устарівша конструкція!) Ставить елемент 'div' перед другим елементом 'hearts[1]'
+
+   // circles[0].remove(); // - Видаляє перший елемент circles[0]
+// wrapper.removeChild(heartsp[1]);  // - Устарівша конструкція ! (Нам приходилось получати батьків(wrapper) цього елементу)
+
+   // hearts[0].replaceWith(circles[0]); // - Заміняє елемент hearts[0], елементом circles[0]
+// wrapper.replaceChild(circles[0], hearts[0]) // - Устарівша конструкція !
+
+
+// div.innerHTML = "Hellow World"; // - Вставили в наш елемент (чорний блок) 'div' текст "Hellow World"
+// div.innerHTML = '<h1>Hellow World</h1>'; // - МЕТОД зза допомогою якого ми можемо вставляти HTML структуру в наш елемент
+
+// div.textContent = 'Hello'; // - Цей МЕТОД працює тільки з текстом ! Вставили в елемент 'div' текст 'Hello'
+
+// div.insertAdjacentHTML('beforebegin', '<h2>Hello</h2>'); // - Вставили наш HTML код перед елементом 'div' зза допомогою('beforebegin')
+// Ще ТРИ Варіанти --->  ('afterbegin'(в початок)'beforeend'(перед кінцем)'afterend'(після елементу)
+
+
+
+// ~~~~~~~~~~> 30. Практика. Завдання на відпрацювання дій зі сторінкою
+
+
+// const movieDB = {
+//    movies: [
+//        "Логан",
+//        "Лига справедливости",
+//        "Ла-ла лэнд",
+//        "Одержимость",
+//        "Скотт Пилигрим против..."
+//    ]
+// };
+
+// const promoADV = document.querySelectorAll('.promo__adv img'),
+//      newGenre = document.querySelector('.promo__genre'),
+//      newBG = document.querySelector('.promo__bg'),
+//      newList = document.querySelector('.promo__interactive-list');
+
+// promoADV.forEach(item => {
+//    item.remove();
+// });
+
+// newGenre.textContent = "драма";
+
+// newBG.style.backgroundImage = 'url("img/bg.jpg")';
+
+// newList.innerHTML = "";
+
+// movieDB.movies.sort();
+
+// movieDB.movies.forEach((film, i) => {
+//    newList.innerHTML += `
+//        <li class="promo__interactive-item">${i + 1} ${film}
+//            <div class="delete"></div>
+//        </li>
+//    `;
+// });
+
+
+
