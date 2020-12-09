@@ -1013,3 +1013,53 @@
 
 
 
+// ~~~~~~~~~~> 31. Події та їх обробники
+
+
+// const btn = document.querySelector('button');
+
+
+// btn.addEventListener('click', (e) => {   // - 'click'(назва події) Спочатку виконується 'click', а вже потім кол бек функція (e) => { alert('Click'); )};
+//    alert('Click');
+// });
+
+
+// btn.addEventListener('mouseenter', (e) => {  // - mouseenter - hover(наведіть курсор) (e) це  об'єкт події який завжди передається першим аргументом
+//    console.log(e.target);    // - Виводить в консоль btn елемент (кнопку з HTML)
+//    e.target.remove(); // - Видаляє кнопку коли ми НАВОДИМО ('mouseenter') на кнопку! 
+//    console.log('Hover');
+// });
+
+
+// let i = 0;
+// const deleteElement = (e) => {
+//    console.log(e.target);
+//    i++;
+//    if (i == 1) {
+//       btn.removeEventListener('click', deleteElement); // - Спрацювала умова. Коли ми 2 раз нажмемо на кнопку, не виведе другий раз кнопку HTML button
+//    }
+// };
+
+// btn.addEventListener('click', deleteElement); // - Після того як ми нажмемо('click') в нас виконається функція(deleteElement) виведе в консоль обєкт button
+
+
+// const link = document.querySelector('a');  // - має в собі ссилку на ютуб
+
+// link.addEventListener('click', function(event) {
+//    event.preventDefault();     // - Відміняє стандартну поведінку (перехід по ссилці)
+
+//    console.log(event.target); // = Виводить в консоль елемент (const link) ссилку
+// });
+
+
+// const element = (e) => {
+//    console.log(e.target);
+//    console.log(e.type);
+// };
+
+// const btns = document.querySelectorAll('button');
+// btns.forEach(btn => {
+//    btn.addEventListener('click', element, {once: true}); // - once Це опція яка вказує що ця подія має виконуватись тільки 1 раз!
+// });
+
+
