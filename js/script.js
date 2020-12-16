@@ -13,6 +13,32 @@
 // ~~~~~~~~~~> 12. Практика ч.1. Починаємо створювати додаток
 
 
+/* 
+Завдання на урок:
+
+1) Створити змінну numberOfFilms і в неї помістити відповідь від користувача на питання:
+'Скільки фільмів ви вже подивилися?'
+
+2) Створити об'єкт personalMovieDB і в нього помістити такі властивості:
+    - count - сюди передається відповідь на перше запитання
+    - movies - в це властивість помістити порожній об'єкт
+    - actors - теж помістити порожній об'єкт
+    - genres - сюди помістити порожній масив
+    - privat - в це властивість помістити boolean (логічний) значення false
+
+3) Задайте користувачеві по два рази питання:
+    - 'Один з останніх переглянутих фільмів?'
+    - 'На скільки оціните його?'
+Відповіді варто помістити в окремі змінні
+Записати відповіді в об'єкт movies в форматі:
+    movies: {
+        'Logan': '8.1'
+    }
+
+Перевірити, щоб все працювало без помилок в консолі 
+*/
+
+
 // const numberOfFilms = prompt('Скільки фільмів?', '');
 
 
@@ -127,6 +153,23 @@
 
 
 // ~~~~~~~~~~> 15. Практика ч2. Застосовуємо умови і цикли
+
+
+/* 
+Завдання на урок:
+
+1) Автоматизувати питання користувачеві про фільми за допомогою циклу
+
+2) Зробити так, щоб користувач не міг залишити відповідь у вигляді порожнього рядка,
+скасувати відповідь або ввести назву фільму довше, ніж 50 символів. Якщо це відбувається -
+повертаємо користувача до питань знову
+
+3) За допомогою умов перевірити personalMovieDB.count, і якщо він менше 10 - вивести повідомлення
+"Переглянуто досить мало фільмів", якщо від 10 до 30 - "Ви класичний глядач", а якщо більше -
+"Ви кіноман". А якщо не підійшло до жодного варіанту - "Сталася помилка"
+
+4) Потренуватися і переписати цикл ще двома способами 
+*/
 
 
 // let numberOfFilms = prompt('Скільки фільмів?', '');
@@ -317,6 +360,22 @@
 
 
 // ~~~~~~~~~~> 18. Практика ч3. Використовуємо функції
+
+
+/* 
+Завдання на урок:
+
+1) Першу частину завдання повторити по уроку
+
+2) Створити функцію showMyDB, яка буде перевіряти властивість privat. Якщо стоїть в позиції
+false - виводить в консоль головний об'єкт програми
+
+3) Створити функцію writeYourGenres в якій користувач буде 3 рази відповідати на питання
+"Ваш улюблений жанр під номером $ {номер один по одному}". Кожна відповідь записується в масив даних
+genres
+
+P.S. Функції викликати не обов'язково 
+*/
 
 
 // let numberOfFilms;
@@ -673,6 +732,23 @@
 // ~~~~~~~~~~> 24. Практика ч4. Використовуємо об'єкти
 
 
+/* 
+Завдання на урок:
+
+1) У нас уже є робоча програма, що складається з окремих функцій. Уявіть, що
+перед вами стоїть завдання переписати його так, щоб всі функції стали методами об'єкта personalMovieDB
+Таке трапляється в реальних продуктах при зміні технологій чи підходу до архітектури програми
+
+2) Створити метод toggleVisibleMyDB, який при виклику перевірятиме властивість privat. Якщо воно false - він
+перемикає його в true, якщо true - перемикає в false. Протестувати разом з showMyDB.
+
+3) У методі writeYourGenres заблокувати надходження натиснути кнопку "скасування" або залишати порожній рядок.
+Якщо він це зробив - повертати його до цього ж питання. Після того, як всі жанри введені -
+за допомогою методу forEach вивести в консоль повідомлення в такому вигляді:
+"Улюблений жанр # (номер по порядку, починаючи з 1) - це (назва з масиву)" 
+*/
+
+
 // const personalMovieDB = {
 //     count: 0,
 //     movies: {},
@@ -976,6 +1052,23 @@
 // ~~~~~~~~~~> 30. Практика. Завдання на відпрацювання дій зі сторінкою
 
 
+/*
+Завдання на урок:
+
+1) Видалити всі рекламні блоки зі сторінки (права частина сайту)
+
+2) Змінити жанр фільму, замінити "комедія" на "драма"
+
+3) Змінити задній фон постера з фільмом на зображення "bg.jpg". Воно лежить в папці img.
+Реалізувати тільки за допомогою JS
+
+4) Список фільмів на сторінці сформувати на підставі даних з цього JS файлу.
+Відсортувати їх за алфавітом
+
+5) Додати нумерацію виведених фільмів 
+*/
+
+
 // const movieDB = {
 //    movies: [
 //        "Логан",
@@ -1063,3 +1156,149 @@
 // });
 
 
+
+// ~~~~~~~~~~> 32. Навігація по DOM - елементам, data-атрибути, перевага for / of
+
+
+// console.log(document.body); // - Звернутися до тегу body
+// console.log(document.documentElement); // - Звернутися до тегу HTML
+// console.log(document.body.childNodes); // - Звернутися до вузлів (нодів) які є в body (дітей body)
+// console.log(document.body.firstChild); // - Звернутись до першої дитини батька (body) (Вузол) - Получаємо текстову НОДУ
+// console.log(document.body.lastChild);  // - Звернутись до останньої дитини батька (body) (Вузол)
+// console.log(document.querySelector('#current').parentNode); // - Получити батька(current) зза допомогою (.parentNode) (Вузол)
+// console.log(document.querySelector('#current').parentNode.parentNode); // - Або піти вище зза допомогою двох (.parentNode.parentNode)
+// console.log(document.querySelector('[data-current="3"]')); // - Получити атрибут (data-current)
+// console.log(document.querySelector('[data-current="3"]').nextSibling); // - Получити слідуючий вузол після (data-current). Це буде текстова нода(#text) пропуск
+// console.log(document.querySelector('[data-current="3"]').previousSibling); // - Получити попередній вузол перед (data-current). Це буде текстова нода(#text) пропуск
+// console.log(document.querySelector('[data-current="3"]').nextElementSibling); // - Получити слідуючий вже ЕЛЕМЕНТ після (data-current)
+// console.log(document.querySelector('[data-current="3"]').previousElementSibling); // - Получити попередній вже ЕЛЕМЕНТ перед (data-current)
+// console.log(document.querySelector('#current').parentElement); // - Получити батька(current) зза допомогою (parentElement) Вже точно це буде ЕЛЕМЕНТ
+// console.log(document.body.firstElementChild); // - Звернутись до першої дитини батька (body), - Получаємо ЕЛЕМЕНТ
+
+
+// for (let node of document.body.childNodes) {
+//    if (node.nodeName == '#text') {    // - Якщо в ноді нам попадеться nodeName з іменем #text - то ми призупиняємось, і йдемо дальше з новим елементом 
+//       continue;
+//    }
+
+//    console.log(node);
+// }                     // - Тут ми получимо всі ЕЛЕМЕНТИ батька (body)
+
+
+
+// ~~~~~~~~~~> 33. Практика. Використовуємо події на сторінці проекту
+
+
+/*
+Завдання на урок:
+
+1) Реалізувати функціонал, що після заповнення форми і натискання кнопки "Підтвердити" -
+новий фільм буде додано до списку. Сторінка не повинна перезавантажуватися.
+Новий фільм повинен додаватися в movieDB.movies.
+Для отримання доступу до значення input - звертаємося до нього як input.value;
+P.S. Тут є кілька варіантів вирішення задачі, приймається будь-який, але робочий.
+
+2) Якщо назва фільму більше, ніж 21 символ - обрізати його і додати три крапки
+
+3) При кліці на кошик для сміття - елемент буде видалятися зі списку (складно)
+
+4) Якщо в формі стоїть галочка "Зробити улюбленим" - в консоль вивести повідомлення:
+"Додаємо улюблений фільм"
+
+5) Фільми повинні бути відсортовані за алфавітом
+*/
+
+
+// const movieDB = {
+//    movies: [
+//       "Логан",
+//       "Лига справедливости",
+//       "Ла-ла лэнд",
+//       "Одержимость",
+//       "Скотт Пилигрим против..."
+//    ]
+// };
+
+
+// const promoADV = document.querySelectorAll('.promo__adv img'),
+//    newGenre = document.querySelector('.promo__genre'),
+//    newBG = document.querySelector('.promo__bg'),
+//    newList = document.querySelector('.promo__interactive-list'),
+//    form = document.querySelector('form.add'),
+//    addInp = form.querySelector('.adding__input'),
+//    checkbox = form.querySelector('[type="checkbox"]');
+
+
+// form.addEventListener('submit', (e) => {
+//    e.preventDefault();
+
+//    let newFilm = addInp.value;
+//    const favorite = checkbox.checked;
+
+//    if (newFilm) {
+
+//       if (newFilm.length > 21) {
+//          newFilm = `${newFilm.substring(0, 22)}...`;
+//       };
+
+//       if (favorite) {
+//          console.log("Додаємо улюблений фільм");
+//       }
+
+//       movieDB.movies.push(newFilm);
+//       sortArr(movieDB.movies);
+
+//       createMovieList(movieDB.movies, newList);
+//    };
+
+//    e.target.reset();
+
+// });
+
+
+// const deleteADV = (arr) => {
+//    arr.forEach(item => {
+//       item.remove();
+//    });
+// };
+
+
+// const makeChanges = () => {
+//    newGenre.textContent = "драма";
+
+//    newBG.style.backgroundImage = 'url("img/bg.jpg")';
+// };
+
+
+// const sortArr = (arr) => {
+//    arr.sort();
+// };
+
+
+// function createMovieList(films, parent) {
+//    parent.innerHTML = "";
+//    sortArr(films);
+
+//    films.forEach((film, i) => {
+//       parent.innerHTML += `
+//          <li class="promo__interactive-item">${i + 1} ${film}
+//              <div class="delete"></div>
+//          </li>
+//      `;
+//    });
+
+
+//    document.querySelectorAll('.delete').forEach((btn, i) => {
+//       btn.addEventListener('click', () => {
+//          btn.parentElement.remove();
+//          movieDB.movies.splice(i, 1);
+
+//          createMovieList(films, parent);
+//       });
+//    });
+// };
+
+
+// deleteADV(promoADV);
+// makeChanges();
+// createMovieList(movieDB.movies, newList);
