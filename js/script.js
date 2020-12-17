@@ -1208,97 +1208,170 @@ P.S. Тут є кілька варіантів вирішення задачі, 
 5) Фільми повинні бути відсортовані за алфавітом
 */
 
+// document.addEventListener('DOMContentLoaded', () => {
 
-// const movieDB = {
-//    movies: [
-//       "Логан",
-//       "Лига справедливости",
-//       "Ла-ла лэнд",
-//       "Одержимость",
-//       "Скотт Пилигрим против..."
-//    ]
-// };
-
-
-// const promoADV = document.querySelectorAll('.promo__adv img'),
-//    newGenre = document.querySelector('.promo__genre'),
-//    newBG = document.querySelector('.promo__bg'),
-//    newList = document.querySelector('.promo__interactive-list'),
-//    form = document.querySelector('form.add'),
-//    addInp = form.querySelector('.adding__input'),
-//    checkbox = form.querySelector('[type="checkbox"]');
-
-
-// form.addEventListener('submit', (e) => {
-//    e.preventDefault();
-
-//    let newFilm = addInp.value;
-//    const favorite = checkbox.checked;
-
-//    if (newFilm) {
-
-//       if (newFilm.length > 21) {
-//          newFilm = `${newFilm.substring(0, 22)}...`;
-//       };
-
-//       if (favorite) {
-//          console.log("Додаємо улюблений фільм");
-//       }
-
-//       movieDB.movies.push(newFilm);
-//       sortArr(movieDB.movies);
-
-//       createMovieList(movieDB.movies, newList);
+//    const movieDB = {
+//       movies: [
+//          "Логан",
+//          "Лига справедливости",
+//          "Ла-ла лэнд",
+//          "Одержимость",
+//          "Скотт Пилигрим против..."
+//       ]
 //    };
 
-//    e.target.reset();
+
+//    const promoADV = document.querySelectorAll('.promo__adv img'),
+//       newGenre = document.querySelector('.promo__genre'),
+//       newBG = document.querySelector('.promo__bg'),
+//       newList = document.querySelector('.promo__interactive-list'),
+//       form = document.querySelector('form.add'),
+//       addInp = form.querySelector('.adding__input'),
+//       checkbox = form.querySelector('[type="checkbox"]');
+
+
+//    form.addEventListener('submit', (e) => {
+//       e.preventDefault();
+
+//       let newFilm = addInp.value;
+//       const favorite = checkbox.checked;
+
+//       if (newFilm) {
+
+//          if (newFilm.length > 21) {
+//             newFilm = `${newFilm.substring(0, 22)}...`;
+//          }
+
+//          if (favorite) {
+//             console.log("Додаємо улюблений фільм");
+//          }
+
+//          movieDB.movies.push(newFilm);
+//          sortArr(movieDB.movies);
+
+//          createMovieList(movieDB.movies, newList);
+//       }
+
+//       e.target.reset();
+
+//    });
+
+
+//    const deleteADV = (arr) => {
+//       arr.forEach(item => {
+//          item.remove();
+//       });
+//    };
+
+
+//    const makeChanges = () => {
+//       newGenre.textContent = "драма";
+
+//       newBG.style.backgroundImage = 'url("img/bg.jpg")';
+//    };
+
+
+//    const sortArr = (arr) => {
+//       arr.sort();
+//    };
+
+
+//    function createMovieList(films, parent) {
+//       parent.innerHTML = "";
+//       sortArr(films);
+
+//       films.forEach((film, i) => {
+//          parent.innerHTML += `
+//             <li class="promo__interactive-item">${i + 1} ${film}
+//                 <div class="delete"></div>
+//             </li>
+//         `;
+//       });
+
+//       document.querySelectorAll('.delete').forEach((btn, i) => {
+//          btn.addEventListener('click', () => {
+//             btn.parentElement.remove();
+//             movieDB.movies.splice(i, 1);
+
+//             createMovieList(films, parent);
+//          });
+//       });
+//    }
+
+
+//    deleteADV(promoADV);
+//    makeChanges();
+//    createMovieList(movieDB.movies, newList);
 
 // });
 
 
-// const deleteADV = (arr) => {
-//    arr.forEach(item => {
-//       item.remove();
-//    });
-// };
+
+// ~~~~~~~~~~> 34. Події на мобільних пристроях
 
 
-// const makeChanges = () => {
-//    newGenre.textContent = "драма";
-
-//    newBG.style.backgroundImage = 'url("img/bg.jpg")';
-// };
-
-
-// const sortArr = (arr) => {
-//    arr.sort();
-// };
+// touchstart // - Потрогали екран
+// touchmove  // - рухаємо пальцем
+// touchend   // - забрали палець
+// touchenter
+// touchleave
+// touchcancel
 
 
-// function createMovieList(films, parent) {
-//    parent.innerHTML = "";
-//    sortArr(films);
+// window.addEventListener('DOMContentLoaded', () => {
+//    const box = document.querySelector('.box');
 
-//    films.forEach((film, i) => {
-//       parent.innerHTML += `
-//          <li class="promo__interactive-item">${i + 1} ${film}
-//              <div class="delete"></div>
-//          </li>
-//      `;
+//    box.addEventListener('touchstart', (e) => {
+//       e.preventDefault();
+
+//       console.log('Start');
 //    });
 
+//    box.addEventListener('touchmove', (e) => {
+//       e.preventDefault();
 
-//    document.querySelectorAll('.delete').forEach((btn, i) => {
-//       btn.addEventListener('click', () => {
-//          btn.parentElement.remove();
-//          movieDB.movies.splice(i, 1);
-
-//          createMovieList(films, parent);
-//       });
+//       console.log('Move');
 //    });
-// };
+
+//    box.addEventListener('touchend', (e) => {
+//       e.preventDefault();
+
+//       console.log('End');
+//    });
+
+// });
 
 
-// deleteADV(promoADV);
-// makeChanges();
-// createMovieList(movieDB.movies, newList);
+// touches - поличити всі пальці які в нас на екрані
+// targetTouches - получити всі пальці які взаємодіють з нашим елементом
+// changedTouches - список пальців які беруть участь в поточній події
+
+
+
+// ~~~~~~~~~~> 35. Async, defer, динамічні скрипти
+
+
+// HTML
+// <body>
+//    <script defer src="js/script.js"></script> // - Коли ми використовуємо скріпти з атрибутом DEFER то вони загружаються тільки після DOM структури та один за іншим(по порядку) 
+//    <script defer src="js/test.js"></script>
+
+
+//    <script async src="js/script.js"></script> // - Коли ми використовуємо скріпти з атрибутом ASYNC ми повинні бути впевнені що цей скріпт не залежить від DOM структури
+//    <script async src="js/test.js"></script>   // - Йому всеодно сформувалась вона чи НІ та він не залежить від других скріптів. Він виконується як тільки загрузиться
+
+// </body>
+
+
+         //-Динамічно помістити СКРІПТ на сторінку !
+// function loadScript(src) {
+//    const script = document.createElement('script');
+//    script.src = src;
+//    script.async = false;           // - Відмінили стандартне поводження ASYNC(асинхронність) і зараз він працює як DEFER по черзі один за іншим script > test
+//    document.body.append(script);            // - Ставить елемент в кінці body
+// }
+
+// loadScript('js/script.js');
+// loadScript('js/test.js');.
+
+
