@@ -1375,3 +1375,52 @@ P.S. Тут є кілька варіантів вирішення задачі, 
 // loadScript('js/test.js');.
 
 
+
+// ~~~~~~~~~~> 37. ClassList і делегування подій
+
+
+// const btns = document.querySelectorAll('button');
+
+// console.log(btns[0].classList.lenght);       // - Позволяє получити нам кількість класів першої кнопки
+// console.log(btns[0].classList.item(0));      // - item позволяє нам получити класс який знаходиться під певним індексом 
+// console.log(btns[0].classList.add('red', 'qqq'));   // - add позволяє нам добавити певні класи .red та .qqq
+// console.log(btns[0].classList.remove('blue'));  // - remove позволяє нам видаляти класи .blue
+// console.log(btns[0].classList.toggle('blue'));  // - toggle позволяє нам тоглити(видаляє якщо він Є або добавляє якщо його немає) класи 
+
+// if (btns[1].classList.contains('red')) {    // - contains позволяє нам перевіряти нявність класу red в кнопці №2
+//    console.log('red');                      // - Якщо клас red Є, то ми в консоль пишемо red
+// }                                           // - Якщо немає такого класу то виведе FALSE
+
+// btns[0].addEventListener('click', () => {      // - Коли я клікаю на першу кнопку
+//    if (!btns[1].classList.contains('red')) {   // - Провіряю 2-гу кнопку! Якщо в неї НЕмає класу red 
+//       btns[1].classList.add('red');            // - То ми добавляємо їй клас red
+//    } else {
+//       btns[1].classList.remove('red');         // - Якщо в першої кнопки є клас red то ми видаляємо його
+//    }
+// });
+
+// // --- Спосіб 2 з toggle в складних скріптах не завжди доступно 
+// btns[0].addEventListener('click', () => {
+//    btns[1].classList.toggle('red');
+// });
+
+
+// const btns = document.querySelectorAll('button'),
+//    wrapper = document.querySelector('.btn-block');    // - змінна яка дістає батьків цих кнопок (btn-block)
+
+
+// btns[0].addEventListener('click', () => {
+//    btns[1].classList.toggle('red');
+// });
+
+
+// // --- Делегування (працює з динамічно створеною кнопкою яку ми створили нижче)
+// wrapper.addEventListener('click', (event) => {
+//    if (event.target && event.target.tag.Name == 'BUTTON') {  // - event має в собі властивість (Назва тегу яка є в HTML структурі) "tagName": "BUTTON"
+//       console.log('Hello');
+//    }
+// });
+      // // --- if (event.target && event.target.matches("button.red")) --- Метод matches означає що якийсь елемент співпадає з чимось (button з класом red)
+// const btn = document.createElement('button');   // - Створили ще 1 кнопку з класом red і добавили її батьку wrapper
+// btn.classList.add('red');
+// wrapper.append(btn);
