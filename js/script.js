@@ -1,60 +1,28 @@
-// const timerId = setTimeout(function() {    // - перший аргумент - це функція, 
-//     console.log('Hello');                  // - а другим аргументом вказуємо затримку(через скільки часу вона виконається)          
-// }, 2000);                                   // - виконається через 2 секунди (2000 мс)
+'use strict';
+
+// const now = new Date();
+// new Date.parse('2021-01-15'); // - Створити дату 
+
+// console.log(now.setHours(18));     // - setHours() Метод який змінює годину, але в VS Code він орієнтується на UTC і покаже 16:00 а не 18:00
+                                   // - А в браузері покаже 18:00
 
 
-// const timerId = setTimeout(function(text) {
-//     console.log(text);
-// }, 2000, 'Hello');         // - Записали третім аргументом "Hello" який по синиаксису перейде в функцію ака запускається в середині setTimeout-а
+// console.log(now.getFullYear());  // - getFullYear() Метод який виводить поточний рік - 2021
+// console.log(now.getMonth());     // - getMonth() Метод який виводить поточний місяць (Наприклад число 7 = Червень) починаючи з 0
+// console.log(now.getDate());      // - getDate() Метод який виводить поточний день місяця з 1 по 31
+// console.log(now.getHours());     // - getHours() Метод який виводить поточну годину 
+// console.log(now.getDay());       // - getDay() Метод який виводить поточний день тижня (0 = неділя)
+// console.log(now.getUTCHours());  // - getUTCHours() Метод який виводить годину по UTC +0
+
+// console.log(now.getTimezoneOffset());  // - getTimezoneOffset() Метод який получає різницю в ХВ між місцевим часом і UTC
 
 
-// const timerId = setTimeout(logger, 2000);   // - Першим аргументом задається готова функція яка виконається через 2с 
+// let start = new Date();   // - Змінній start присвоїли поточну дату
 
-// function logger () {
-//     console.log('text');
+// for (let i = 0; i < 100000; i++) {
+//     let some = i ** 3;               // - i кожного разу зводити в 3 степінь
 // }
 
+// let end = new Date();   // - Змінній end присвоїли нову дату, вже після нашого циклу
 
-// const btn = document.querySelector('.btn');
-// let timerId,             // - Створили ГЛОБАЛЬНУ змінну timerId щоб її бачили всі функції 
-//     i = 0;    // - Змінна Ітератор (Лічильник)
-
-// btn.addEventListener('click', () => {
-//     timerId = setInterval(logger, 2000); // - Функція logger виконується завжди після кліку з інтервалом 2 сек
-// });
-
-// function logger () {
-//     if (i === 3) {                 // - Якщо і = 3, то ми запускаємо clearInterval який зупинить цей безкінечний цикл
-//         clearInterval(timerId);    // - Функція яка зупиняє setTimeout та setInterval
-//     }
-//     console.log('text');
-//     i++;                   // - Змінну і кожного разу збільшуємо на 1
-
-
-
-// let interval = setTimeout(function hi(){   // - Працює як setInterval, але завжди буде чекати відведений йому час 0,5сек
-//     console.log('Hello');
-//     interval = setTimeout(hi, 500);
-// }, 500);
-
-
-
-// const btn = document.querySelector('.btn');
-
-// function myAnimation() {
-//     const elem = document.querySelector('.box');  // - Створили змінну для квадрата 
-//     let pos = 0;                                  // - // - Створили змінну для позиції
-
-//     const id = setInterval(frame, 10);  // - Запускажмо функцію frame і вказуємо затримку 10мс
-//     function frame() {
-//         if (pos == 300) {          // - кінечне значення 300px і анімація має зупинитись
-//             clearInterval(id);    // - Зупиняємо анімацію (setInterval під змінною id) коли вона достигла 300 пікселів! 
-//         } else {
-//             pos++;
-//             elem.style.top = pos + 'px';    // - Вказуємо що при кожному кроці анімації ми будемо змінювати TOP. Кажемо що сюда приходить поточна позиція + піксель
-//             elem.style.left = pos + 'px';   // - Теж саме і для ЛІВА
-//         }
-//     }
-// }
-
-// btn.addEventListener('click', myAnimation); // - Після кліку запускається функція myAnimation
+// alert(`Цикл відпраццював за ${end - start} міллісекунд`);   // - Відняли від кінцевого часу початковий (показує в мс)
